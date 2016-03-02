@@ -1,4 +1,4 @@
-//Michał Ogorzałek Marianna Siembiot
+  //Michał Ogorzałek Marianna Siembiot
 //import geomerative.*;
 import java.util.*;
 import java.io.*;
