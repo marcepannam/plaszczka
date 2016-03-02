@@ -9,25 +9,33 @@ void setup() {
   size(500, 700);
 }
 
-ArrayList<PVector> loadCoords() throws IOException {
-  BufferedReader b = new BufferedReader(new InputStreamReader(new FileInputStream("plik.txt")));
+ArrayList<PVector> loadCoords() throws IOException { 
+  BufferedReader b = new BufferedReader(new InputStreamReader(new FileInputStream(sketchPath("plik.txt"))));
   ArrayList<PVector> result = new ArrayList<PVector>();
+  final float S = 1000f; 
   while (true) {
     String line = b.readLine();
     if (line == null) break;
     String[] arr = line.split(",");
     if (arr.length != 2) continue;
-    float x = Float.parseInt(arr[0]);
-    float y = Float.parseInt(arr[1]);
-    result.add(new PVector(x, y));
+    float x = Float.parseFloat(arr[0]);
+    float y = Float.parseFloat(arr[1]);
+    result.add(new PVector(x * S, y * S));
   }
+  b.close();
+
+  return result;
 }
 
 void draw() { 
   background(255);
   par1 = mouseX/(float)width;  
-  //ArrayList<PVector> lista = new ArrayList<PVector>();
-  //PVector a1, a2, c1, b1, b2;
+  ArrayList<PVector> lista = null;
+  try { 
+    lista = loadCoords();
+  } catch(IOException ex) {
+    ex.printStackTrace(); 
+  }
   //a1 = new PVector ( 20, 80);
   //b1 = new PVector ( 80, 20);
   //c1 = new PVector ( 80, 80);
@@ -37,11 +45,13 @@ void draw() {
   //lista.add(a1);
   //lista.add(b1);
   //lista.add(c1);
+  
   ksztalt D = new ksztalt (lista, new PVector(50, 50));
-  D.zmienWielkosc(0.8);
-  D.przesun(new PVector(0, 0));
+  //D.zmienWielkosc(1);
+  //D.przesun(new PVector(0, 0));
   D.rysuj();
 
+  if(true) return;
   // ArrayList <PVector> lista2=new ArrayList();
   //try{lista2=loadCoords(); }
   // catch(IOException e){println ("dupacycki"); } 
@@ -118,10 +128,7 @@ void line(PVector  a, PVector b) {
  }*/
 
 
-
-}*/
-
-  void kooWyj(ArrayList <PVector> wsp)
+void kooWyj(ArrayList <PVector> wsp)
 {
   //funkcja wypisuje koordynaty do pliku txt albo do konsoli
   //do istniejącego pliku i nie nadpisywac
