@@ -7,9 +7,7 @@ class ksztalt {
   ksztalt (ArrayList <PVector> a, PVector sr) {
     srodek=new PVector(); 
     srodek= sr.copy();
-    for (int i=0; i<a.size(); i++) {
-      PVector s = new PVector();
-      s=a.get(i).copy();
+    for (PVector s : a) {
       koo.add(s);
     }
   }
@@ -44,6 +42,11 @@ class ksztalt {
     for (int i=0; i<koo.size(); i++) {
       if (i!=0 ) line(koo.get(i).x, koo.get(i).y, koo.get(i-1).x, koo.get(i-1).y);
       else  line(koo.get(0).x, koo.get(0).y, koo.get(koo.size()-1).x, koo.get(koo.size()-1).y);
+    }
+  }
+  void rysuj2() {
+    for (int i=0; i<koo.size(); i++) {
+      if (i!=0 ) line(koo.get(i).x, koo.get(i).y, koo.get(i-1).x, koo.get(i-1).y);
     }
   }
   void zmienWielkosc(float Wsp) {    

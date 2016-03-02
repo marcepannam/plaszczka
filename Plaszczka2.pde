@@ -49,12 +49,12 @@ void draw() {
   ksztalt D = new ksztalt (lista, new PVector(50, 50));
   //D.zmienWielkosc(1);
   //D.przesun(new PVector(0, 0));
-  D.rysuj();
+  D.rysuj2();
 
   if(true) return;
   // ArrayList <PVector> lista2=new ArrayList();
   //try{lista2=loadCoords(); }
-  // catch(IOException e){println ("dupacycki"); } 
+  // catch(IOException e){println ("dupacycki"); } KTÓRE SĄ NIE UŻWANE 
 
   //ksztalt D = new ksztalt();
 
@@ -65,7 +65,7 @@ void draw() {
     D.obroc(-PI/5);
     D.zmienWielkosc(1.1);
     D.przesun(new PVector(i, i*i/5) );
-    C=posKszt(tmp, D, par1);
+    C = posKszt(tmp, D, par1);
 
     for (int n=0; n<i; n++) {
       ksztalt tmp2= new ksztalt();
