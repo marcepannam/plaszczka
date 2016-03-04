@@ -51,7 +51,6 @@ void draw() {
   //D.przesun(new PVector(0, 0));
   D.rysuj2();
 
-  if(true) return;
   // ArrayList <PVector> lista2=new ArrayList();
   //try{lista2=loadCoords(); }
   // catch(IOException e){println ("dupacycki"); } KTÓRE SĄ NIE UŻWANE 
