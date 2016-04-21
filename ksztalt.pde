@@ -1,15 +1,23 @@
 class ksztalt {
   private ArrayList <PVector> koo=new ArrayList <PVector> (); 
   private PVector srodek=new PVector(); 
-  //nachylenie??
+  
   ksztalt() {
   } 
+  
   ksztalt (ArrayList <PVector> a, PVector sr) {
-    srodek=new PVector(); 
-    srodek= sr.copy();
+    srodek = sr.copy();
     for (PVector s : a) {
-      koo.add(s);
+      koo.add(s.copy());
     }
+  }
+  ksztalt(ArrayList<PVector> a) {
+    srodek = new PVector();
+    for (PVector s : a) {
+      koo.add(s.copy());
+      srodek.add(s);
+    }
+    srodek.mult(1.0 / a.size());
   }
   /* ksztalt(ArrayList <PVector> a) {
    srodek= new PVector (0, 0);
@@ -29,7 +37,7 @@ class ksztalt {
     }
   } 
   void kopiuj(ksztalt a) {
-    srodek=new PVector(); 
+    //srodek=new PVector(); 
     srodek= a.srodek.copy();
     for (int i=0; i<a.koo.size(); i++) {
       PVector s = new PVector();
